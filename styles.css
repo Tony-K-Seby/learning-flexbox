@@ -15,27 +15,23 @@
 }
 
 body {
-  display: flex;
   min-height: 100vh;
   max-width: 100%;
-  align-items: center;
-  justify-content: center;
 }
 
 .card {
   display: flex;
   background-color: white;
-  flex-direction: row;
-  width: clamp(650px, 60%, 700px);
+  flex-direction: column;
+  margin:auto;
 }
 
 .cardHeader {
   display: flex;
   flex-direction: column;
-  flex: 2;
   align-items: center;
   background: linear-gradient(hsl(252, 100%, 67%), hsl(241, 81%, 54%));
-  border-radius: 30px 20px 20px 30px;
+  border-radius: 0 0 30px 30px;
   padding: 2rem 3rem;
 }
 
@@ -73,6 +69,7 @@ body {
 .cardHeader-feedback {
   font-size: 1.3rem;
   color: hsl(221, 100%, 96%);
+  margin-bottom: 0.5rem;
 }
 
 .cardHeader-feedback-description {
@@ -87,8 +84,6 @@ body {
   flex: 3;
   padding: 1rem 2rem;
   gap: 1.5rem;
-  border-radius: 5px 30px 30px 5px;
-  box-shadow: 1px 10px 20px hsla(224, 30%, 27%, 0.3);
 }
 .cardDescription-title {
   color: hsl(224, 30%, 27%);
@@ -135,6 +130,7 @@ body {
 .score {
   color: hsl(224, 30%, 27%);
 }
+
 .cardDescription-button {
   color: hsl(221, 100%, 96%);
   background-color: hsl(224, 30%, 27%);
@@ -149,4 +145,37 @@ body {
   background-color: hsl(224, 30%, 27%);
   background-image: linear-gradient(hsl(252, 100%, 67%), hsl(241, 81%, 54%));
   cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+  main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+  }
+
+  .card {
+    flex-direction: row;
+    justify-content: center;
+    align-self: center;
+    width: clamp(650px, 60%, 700px);
+  }
+
+  .cardHeader {
+    border-radius: 30px;
+    flex: 2;
+    z-index: 1;
+    transform: translateX(3%);
+    justify-content: space-around;
+  }
+  .cardDescription {
+    flex: 3;
+    border-radius: 0 30px 30px 0;
+    box-shadow: 1px 10px 20px hsla(224, 30%, 27%, 0.3);
+  }
 }
